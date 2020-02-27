@@ -15,7 +15,7 @@ function contactSend() {
 			document.getElementById('success').innerHTML = '<font color="#c0392b">Bir Hata Oluştu: ' + error["text"] + '</font>';
 		}
 	};
-	xhttp.open("POST", "{{@REALM}}yollagelsin", true);
+	xhttp.open("POST", "yollagelsin", true);
 	xhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send("name=" + name + "&phone=" + phone + "&email=" + email + "&message=" + message);

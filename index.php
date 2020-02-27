@@ -10,6 +10,10 @@
 	$f3->route('POST @contact: /yollagelsin [ajax]', function($f3){
 		$p = $f3->get('POST');
 		// file_put_contents(time(),json_encode($p));
+
+		if(count($f3->get('MAIL')) != 8){
+			$f3->error(500, 'Mail ayarları düzgün yapılmamış. Bir sorun var.');
+		}
 		if(empty($p['name']) || empty($p['email']) || empty($p['phone']) || empty($p['message'])){
 			$f3->error(400, 'Lütfen tüm formu doldurun.');
 		}
@@ -50,10 +54,9 @@
 		if($audit->email($email,true) == false){
 			$f3->error(400, 'E-posta adresiniz hatalı veya geçersiz.');
 		}
-
 		$smtp = new SMTP($f3->get('MAIL.host'), $f3->get('MAIL.port'), $f3->get('MAIL.scheme'), $f3->get('MAIL.user'), $f3->get('MAIL.pass'));
 		$smtp->set('Errors-to', $f3->get('MAIL.errorsTo'));
-		$smtp->set('To', $f3->get('MAIL.to'));
+		$smtp->set('To', implode(", ",$f3->get('MAIL.to')));
 		$smtp->set('Subject', $f3->get('MAIL.subject'));
 		$smtp->set('Charset', 'utf-8');
 		$smtp->set('Reply-to', '"'.$name.'" <'.$email.'>');
