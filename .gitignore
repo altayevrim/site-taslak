@@ -1,0 +1,9 @@
+vendor/
+tmp/
+rimtay.ini
+views/
+assets/*
+!assets/js
+assets/js/*
+!assets/js/rimtay.js
+composer.lock
