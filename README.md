@@ -18,9 +18,9 @@ Ayrıca tasarımınıza bir form dahil edip aşağıdaki işlemleri yapmanız ge
 ```
 onsubmit="event.preventDefault(); contactSend();"
 ```
-2 - name, email, phone, message **id** lerine sahip input'ları sayfanıza eklemek.
-3 - Form gönderilince sistem verileri POST edecek ve sistem gerekli kontrolleri yaptıktan sonra formu gönderecek.
-
+2 - name, email, phone, message **id** lerine sahip input'ları sayfanıza eklemek.  
+3 - Form gönderilince sistem verileri POST edecek ve sistem gerekli kontrolleri yaptıktan sonra formu gönderecek.  
+  
 ## Tasarım
 Tasarımınızı **views/index.html** olarak yerleştirin.
 
