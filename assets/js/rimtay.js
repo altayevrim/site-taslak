@@ -7,6 +7,7 @@ function contactSend() {
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			document.getElementById('success').innerHTML = '<font color="#2ecc71">Mesajınız başarıyla gönderildi</font>';
+			document.getElementById("message").value = '';
 		} else if (this.readyState == 4 && this.status == 400) {
 			var error = JSON.parse(this.responseText);
 			document.getElementById('success').innerHTML = '<font color="#c0392b">Bir Hata Oluştu: ' + error["text"] + '</font>';
